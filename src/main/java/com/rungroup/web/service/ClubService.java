@@ -5,5 +5,6 @@ import com.rungroup.web.models.Club;
 
 public interface ClubService {
     List<Club> findAllClubs();
-    Club save(Club club);  
+    Club save(Club club);
+    Club getById(Long id);
 }

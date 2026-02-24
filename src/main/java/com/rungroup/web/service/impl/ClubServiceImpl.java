@@ -26,4 +26,9 @@ public class ClubServiceImpl implements ClubService{
     public Club save(Club club){
         return clubRepository.save(club);
     }
+
+    @Override
+    public Club getById(Long id){
+        return clubRepository.findById(id).orElse(null);
+    }
 }

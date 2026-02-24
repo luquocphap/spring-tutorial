@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.rungroup.web.models.Club;
 import com.rungroup.web.service.ClubService;
@@ -24,5 +25,12 @@ public class ClubController {
         List<Club> clubs = clubService.findAllClubs();
         model.addAttribute("clubs", clubs);
         return "clubs-list";
+    }
+
+    @GetMapping("/clubs/{id}")
+    public String getClubById(@PathVariable("id") Long id, Model model){
+        Club club = clubService.getById(id);
+        model.addAttribute("club", club);
+        return "clubInfo";
     }
 }
